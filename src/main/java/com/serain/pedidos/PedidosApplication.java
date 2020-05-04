@@ -1,8 +1,12 @@
 package com.serain.pedidos;
 
 import com.serain.pedidos.domain.Categoria;
+import com.serain.pedidos.domain.Cidade;
+import com.serain.pedidos.domain.Estado;
 import com.serain.pedidos.domain.Produto;
 import com.serain.pedidos.repository.CategoriaRepository;
+import com.serain.pedidos.repository.CidadeRepository;
+import com.serain.pedidos.repository.EstadoRepository;
 import com.serain.pedidos.repository.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -19,6 +23,10 @@ public class PedidosApplication implements CommandLineRunner {
     CategoriaRepository categoriaRepository;
     @Autowired
     ProdutoRepository produtoRepository;
+    @Autowired
+    CidadeRepository cidadeRepository;
+    @Autowired
+    EstadoRepository estadoRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(PedidosApplication.class, args);
@@ -41,9 +49,18 @@ public class PedidosApplication implements CommandLineRunner {
         p2.getCategorias().addAll(Arrays.asList(cat1,cat2));
         p3.getCategorias().addAll(Arrays.asList(cat1));
 
+        Estado est1 = new Estado(null,"Minas Gerais");
+        Estado est2 = new Estado(null,"São Paulo");
 
+        Cidade c1 = new Cidade(null, "Uberlândia", est1);
+        Cidade c2 = new Cidade(null, "São Bernardo do Campo", est2);
+        Cidade c3 = new Cidade(null, "Campinas", est2);
+        
         categoriaRepository.saveAll(Arrays.asList(cat1,cat2));
         produtoRepository.saveAll(Arrays.asList(p1,p2,p3));
+        estadoRepository.saveAll(Arrays.asList(est1,est2));
+        cidadeRepository.saveAll(Arrays.asList(c1,c2,c3));
+
 
 
     }
