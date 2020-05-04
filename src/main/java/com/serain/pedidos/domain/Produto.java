@@ -1,5 +1,6 @@
 package com.serain.pedidos.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,6 +25,8 @@ public class Produto implements Serializable {
     private String nome;
     private Double preco;
 
+    @SuppressWarnings("JpaDataSourceORMInspection")
+    @JsonBackReference
     @ManyToMany
     @JoinTable(name = "PRODUTO_CATEGORIA",
         joinColumns = @JoinColumn(name="produto_id"),
