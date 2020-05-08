@@ -5,10 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -29,8 +26,11 @@ public class Cliente implements Serializable {
     private String cpfOuCnpj;
     private Integer tipo;
 
+    @OneToMany(mappedBy = "cliente")
     private List<Endereco> enderecos = new ArrayList<>();
 
+    @ElementCollection //nome da tabela auxiliar
+    @CollectionTable(name="TELEFONE")
     private Set<String> telefones = new HashSet<>();  //Set n permite repeticção
 
     public Cliente(Integer id, String nome, String email, String cpfOuCnpj, TipoCliente tipo ) {

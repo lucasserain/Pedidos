@@ -1,13 +1,8 @@
 package com.serain.pedidos;
 
-import com.serain.pedidos.domain.Categoria;
-import com.serain.pedidos.domain.Cidade;
-import com.serain.pedidos.domain.Estado;
-import com.serain.pedidos.domain.Produto;
-import com.serain.pedidos.repository.CategoriaRepository;
-import com.serain.pedidos.repository.CidadeRepository;
-import com.serain.pedidos.repository.EstadoRepository;
-import com.serain.pedidos.repository.ProdutoRepository;
+import com.serain.pedidos.domain.*;
+import com.serain.pedidos.domain.enums.TipoCliente;
+import com.serain.pedidos.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -27,6 +22,10 @@ public class PedidosApplication implements CommandLineRunner {
     CidadeRepository cidadeRepository;
     @Autowired
     EstadoRepository estadoRepository;
+    @Autowired
+    ClienteRepository clienteRepository;
+    @Autowired
+    EnderecoRepository enderecoRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(PedidosApplication.class, args);
@@ -56,10 +55,21 @@ public class PedidosApplication implements CommandLineRunner {
         Cidade c2 = new Cidade(null, "São Bernardo do Campo", est2);
         Cidade c3 = new Cidade(null, "Campinas", est2);
 
+        Cliente cli1 = new Cliente(null,"Maria Silva","maria@gmail.com","3638912377", TipoCliente.PESSOAFISICA);
+        cli1.getTelefones().addAll(Arrays.asList("12345678","98765432"));
+
+        Endereco e1 = new Endereco(null,"Rua flores", "12", "apto 1", "jardim","09182123123", cli1, c1);
+        Endereco e2 = new Endereco(null,"Rua macaco", "13", "apto 2", "barrro","25252", cli1, c2);
+
+        cli1.getEnderecos().addAll(Arrays.asList(e1,e2));
+
         categoriaRepository.saveAll(Arrays.asList(cat1,cat2));
         produtoRepository.saveAll(Arrays.asList(p1,p2,p3));
         estadoRepository.saveAll(Arrays.asList(est1,est2));
         cidadeRepository.saveAll(Arrays.asList(c1,c2,c3));
+        clienteRepository.saveAll(Arrays.asList(cli1));
+        enderecoRepository.saveAll(Arrays.asList(e1,e2));
+
 
 
 
