@@ -55,7 +55,7 @@ public class PedidosApplication implements CommandLineRunner {
         Cidade c1 = new Cidade(null, "Uberlândia", est1);
         Cidade c2 = new Cidade(null, "São Bernardo do Campo", est2);
         Cidade c3 = new Cidade(null, "Campinas", est2);
-        
+
         categoriaRepository.saveAll(Arrays.asList(cat1,cat2));
         produtoRepository.saveAll(Arrays.asList(p1,p2,p3));
         estadoRepository.saveAll(Arrays.asList(est1,est2));
