@@ -1,5 +1,6 @@
 package com.serain.pedidos.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.serain.pedidos.domain.enums.EstadoPagamento;
 import com.serain.pedidos.domain.enums.TipoCliente;
 import lombok.*;
@@ -20,9 +21,11 @@ public abstract class Pagamento implements Serializable {
     @Id
     private Integer id;
     private Integer estado;
+
     @OneToOne
     @JoinColumn(name="pedido_id")
     @MapsId
+    @JsonBackReference
     private Pedido pedido;
 
     public Pagamento(Integer id, EstadoPagamento estado, Pedido pedido) {

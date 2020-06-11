@@ -1,5 +1,6 @@
 package com.serain.pedidos.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.serain.pedidos.domain.enums.TipoCliente;
 import lombok.EqualsAndHashCode;
@@ -29,11 +30,15 @@ public class Cliente implements Serializable {
     private String email;
     private String cpfOuCnpj;
     private Integer tipo;
+
+    @JsonBackReference
     @OneToMany(mappedBy = "cliente")
     private List<Pedido> pedidos = new ArrayList<>();
+
     @JsonManagedReference
     @OneToMany(mappedBy = "cliente")
     private List<Endereco> enderecos = new ArrayList<>();
+
     @ElementCollection //nome da tabela auxiliar
     @CollectionTable(name="TELEFONE")
     private Set<String> telefones = new HashSet<>();  //Set n permite repeticção
