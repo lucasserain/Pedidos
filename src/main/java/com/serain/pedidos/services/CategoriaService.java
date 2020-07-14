@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class CategoriaService {
@@ -18,5 +19,10 @@ public class CategoriaService {
     public Categoria find(Integer id){
         Optional<Categoria> obj = categoriaRepository.findById(id);
        return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado! Id: " + id + ", Tipo: " + Categoria.class.getName(),""));
+    }
+
+    public void create(Categoria categoria) {
+        categoria.setId(null);
+        categoriaRepository.save(categoria);
     }
 }
