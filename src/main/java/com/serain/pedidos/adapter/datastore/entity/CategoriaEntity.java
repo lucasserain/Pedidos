@@ -1,4 +1,4 @@
-package com.serain.pedidos.entity;
+package com.serain.pedidos.adapter.datastore.entity;
 
 import com.serain.pedidos.domain.Produto;
 import lombok.EqualsAndHashCode;

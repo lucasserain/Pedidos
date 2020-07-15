@@ -1,7 +1,7 @@
 package com.serain.pedidos.mapper;
 
-import com.serain.pedidos.domain.Categoria;
-import com.serain.pedidos.entity.CategoriaEntity;
+import com.serain.pedidos.core.model.Categoria;
+import com.serain.pedidos.adapter.datastore.entity.CategoriaEntity;
 import org.mapstruct.*;
 import org.mapstruct.factory.Mappers;
 

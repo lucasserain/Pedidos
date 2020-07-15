@@ -1,7 +1,6 @@
 package com.serain.pedidos.repository;
 
-import com.serain.pedidos.domain.Categoria;
-import com.serain.pedidos.entity.CategoriaEntity;
+import com.serain.pedidos.adapter.datastore.entity.CategoriaEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

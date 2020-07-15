@@ -1,7 +1,7 @@
 package com.serain.pedidos.services;
 
-import com.serain.pedidos.domain.Categoria;
-import com.serain.pedidos.entity.CategoriaEntity;
+import com.serain.pedidos.core.model.Categoria;
+import com.serain.pedidos.adapter.datastore.entity.CategoriaEntity;
 import com.serain.pedidos.mapper.CategoriaMapper;
 import com.serain.pedidos.repository.CategoriaRepository;
 
