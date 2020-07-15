@@ -25,11 +25,19 @@ public class CategoriaResource {
     }
 
     @PostMapping
-    public ResponseEntity insert(@RequestBody Categoria categoria){
+    public ResponseEntity<?> insert(@RequestBody Categoria categoria){
 
         categoriaService.create(categoria);
 
-        return new ResponseEntity(HttpStatus.CREATED);
+        return new ResponseEntity<>(HttpStatus.CREATED);
 
+    }
+
+    @PatchMapping(value="/{id}")
+    public ResponseEntity<?> update(@PathVariable Integer id,
+                                    @RequestBody Categoria categoria){
+        categoriaService.update(id, categoria);
+
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

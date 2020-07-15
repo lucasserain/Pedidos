@@ -1,7 +1,10 @@
-package com.serain.pedidos.domain;
+package com.serain.pedidos.entity;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import lombok.*;
+import com.serain.pedidos.domain.Produto;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -13,7 +16,7 @@ import java.util.List;
 @Setter
 @EqualsAndHashCode
 @Entity
-public class Categoria implements Serializable {
+public class CategoriaEntity implements Serializable {
     private static final long serialVersion = 1L;
 
     @Id
@@ -24,7 +27,7 @@ public class Categoria implements Serializable {
     @ManyToMany(mappedBy = "categorias")
     private List<Produto> produtos = new ArrayList<>();
 
-    public Categoria(Integer id, String nome) {
+    public CategoriaEntity(Integer id, String nome) {
         this.id = id;
         this.nome = nome;
     }
