@@ -29,9 +29,12 @@ public class CategoriaService {
     }
 
     public void update(Integer id, Categoria categoria) {
-        //TODO AO ATULIZAR CRIA UM NOVO
         CategoriaEntity categoriaEntity  = CategoriaMapper.INSTANCE.categoriaToCategoriaEntity(find(id));
         CategoriaMapper.INSTANCE.updateCategoriaFromEntity(categoria, categoriaEntity);
         categoriaRepository.save(categoriaEntity);
+    }
+
+    public void delete(Integer id) {
+        categoriaRepository.delete(CategoriaMapper.INSTANCE.categoriaToCategoriaEntity(find(id)));
     }
 }

@@ -40,4 +40,12 @@ public class CategoriaResource {
 
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+    @DeleteMapping(value="/{id}")
+    public ResponseEntity<?> delete(@PathVariable Integer id){
+
+        categoriaService.delete(id);
+
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
 }
