@@ -1,12 +1,10 @@
 package com.serain.pedidos.adapter.datastore.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.serain.pedidos.core.model.Cidade;
+
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
@@ -24,12 +22,6 @@ public class EstadoEntity implements Serializable {
     private Integer id;
     private String nome;
 
-    @JsonIgnore
     @OneToMany(mappedBy = "estado")
     private List<CidadeEntity> cidades;
-
-    public EstadoEntity(Integer id, String nome) {
-        this.id = id;
-        this.nome = nome;
-    }
 }

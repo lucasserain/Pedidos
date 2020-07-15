@@ -1,9 +1,6 @@
 package com.serain.pedidos.core.model;
 
-import com.serain.pedidos.domain.Produto;
 import lombok.*;
-
-import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;

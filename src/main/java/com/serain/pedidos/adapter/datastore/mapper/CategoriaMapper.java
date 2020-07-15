@@ -1,4 +1,4 @@
-package com.serain.pedidos.mapper;
+package com.serain.pedidos.adapter.datastore.mapper;
 
 import com.serain.pedidos.core.model.Categoria;
 import com.serain.pedidos.adapter.datastore.entity.CategoriaEntity;

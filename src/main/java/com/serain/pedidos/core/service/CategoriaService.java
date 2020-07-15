@@ -1,9 +1,9 @@
-package com.serain.pedidos.services;
+package com.serain.pedidos.core.service;
 
 import com.serain.pedidos.core.model.Categoria;
 import com.serain.pedidos.adapter.datastore.entity.CategoriaEntity;
-import com.serain.pedidos.mapper.CategoriaMapper;
-import com.serain.pedidos.repository.CategoriaRepository;
+import com.serain.pedidos.adapter.datastore.mapper.CategoriaMapper;
+import com.serain.pedidos.adapter.datastore.repository.CategoriaRepository;
 
 import org.hibernate.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;

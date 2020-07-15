@@ -1,12 +1,9 @@
 package com.serain.pedidos.core.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 

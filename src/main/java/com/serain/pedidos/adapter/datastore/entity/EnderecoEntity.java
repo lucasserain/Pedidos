@@ -1,10 +1,6 @@
 package com.serain.pedidos.adapter.datastore.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.serain.pedidos.core.model.Cidade;
-import com.serain.pedidos.core.model.Cliente;
 import lombok.*;
-
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -26,7 +22,6 @@ public class EnderecoEntity implements Serializable {
     private String bairro;
     private String cep;
 
-    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "cliente_id")
     private ClienteEntity cliente;
@@ -34,13 +29,4 @@ public class EnderecoEntity implements Serializable {
     @ManyToOne
     @JoinColumn(name = "cidade_id")
     private CidadeEntity cidade;
-
-    public EnderecoEntity(Integer id, String lougradouro, String numero, String complemento, String bairro, String cep) {
-        this.id = id;
-        this.lougradouro = lougradouro;
-        this.numero = numero;
-        this.complemento = complemento;
-        this.bairro = bairro;
-        this.cep = cep;
-    }
 }

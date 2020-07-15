@@ -1,8 +1,6 @@
 package com.serain.pedidos.core.model;
 
 import lombok.*;
-
-import javax.persistence.*;
 import java.io.Serializable;
 
 @Getter

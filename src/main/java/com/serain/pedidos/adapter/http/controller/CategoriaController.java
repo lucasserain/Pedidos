@@ -1,7 +1,7 @@
-package com.serain.pedidos.resources;
+package com.serain.pedidos.adapter.http.controller;
 
 import com.serain.pedidos.core.model.Categoria;
-import com.serain.pedidos.services.CategoriaService;
+import com.serain.pedidos.core.service.CategoriaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(value="/categorias")
-public class CategoriaResource {
+public class CategoriaController {
 
     @Autowired
     CategoriaService categoriaService;

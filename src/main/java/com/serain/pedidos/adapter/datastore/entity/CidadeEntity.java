@@ -1,8 +1,6 @@
 package com.serain.pedidos.adapter.datastore.entity;
 
-import com.serain.pedidos.core.model.Estado;
 import lombok.*;
-
 import javax.persistence.*;
 import java.io.Serializable;
 

@@ -1,17 +1,13 @@
 package com.serain.pedidos;
 
+import com.serain.pedidos.adapter.datastore.repository.*;
 import com.serain.pedidos.domain.*;
 import com.serain.pedidos.domain.enums.EstadoPagamento;
 import com.serain.pedidos.domain.enums.TipoCliente;
-import com.serain.pedidos.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import java.text.SimpleDateFormat;
-import java.util.Arrays;
-import java.util.Collections;
 
 @SpringBootApplication
 public class PedidosApplication implements CommandLineRunner {
