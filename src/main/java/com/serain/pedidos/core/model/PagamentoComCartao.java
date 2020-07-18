@@ -10,7 +10,6 @@ import javax.persistence.Entity;
 @NoArgsConstructor
 @Getter
 @Setter
-@Entity
 public class PagamentoComCartao extends Pagamento {
     private static final long serialVersion = 1L;
 

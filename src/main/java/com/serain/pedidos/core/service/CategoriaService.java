@@ -4,10 +4,10 @@ import com.serain.pedidos.core.model.Categoria;
 import com.serain.pedidos.adapter.datastore.entity.CategoriaEntity;
 import com.serain.pedidos.adapter.datastore.mapper.CategoriaMapper;
 import com.serain.pedidos.adapter.datastore.repository.CategoriaRepository;
-
-import org.hibernate.ObjectNotFoundException;
+import com.serain.pedidos.core.service.exception.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 
 @Service
 public class CategoriaService {
@@ -17,8 +17,9 @@ public class CategoriaService {
 
     public Categoria find(Integer id){
 
+
         return CategoriaMapper.INSTANCE.categoriaEntityToCategoria(categoriaRepository.findById(id).orElseThrow(
-                () -> new ObjectNotFoundException("Objeto não encontrado! Id: " + id + ", Tipo: " + Categoria.class.getName(),"")
+                () -> new ObjectNotFoundException("Objeto não encontrado! Id: " + id + ", Tipo: " + Categoria.class.getName())
         ));
     }
 

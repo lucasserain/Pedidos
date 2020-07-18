@@ -30,18 +30,4 @@ public class Produto implements Serializable {
     @JsonIgnore
     private Set<ItemPedido> itens = new HashSet<>();
 
-    @JsonIgnore
-    private List<Pedido> getPedidos(){
-        List<Pedido> lista = new ArrayList<>();
-        for (ItemPedido itemPedido: itens) {
-            lista.add(itemPedido.getPedido());
-        }
-        return lista;
-    }
-
-    public Produto(Integer id, String nome, Double preco) {
-        this.id = id;
-        this.nome = nome;
-        this.preco = preco;
-    }
 }

@@ -5,14 +5,11 @@ import com.serain.pedidos.core.model.enums.EstadoPagamento;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import javax.persistence.Entity;
 import java.util.Date;
 
 @NoArgsConstructor
 @Getter
 @Setter
-@Entity
 public class PagamentoComBoleto extends Pagamento {
     private static final long serialVersion = 1L;
 
