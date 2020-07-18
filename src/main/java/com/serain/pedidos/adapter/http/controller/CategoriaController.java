@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -45,7 +46,7 @@ public class CategoriaController {
     }
 
     @PostMapping
-    public ResponseEntity<?> insert(@RequestBody Categoria categoria){
+    public ResponseEntity<?> insert(@Valid @RequestBody Categoria categoria){
 
         categoriaService.create(categoria);
 
@@ -54,7 +55,7 @@ public class CategoriaController {
     }
 
     @PatchMapping(value="/{id}")
-    public ResponseEntity<?> update(@PathVariable Integer id,
+    public ResponseEntity<?> update(@Valid @PathVariable Integer id,
                                     @RequestBody Categoria categoria){
         categoriaService.update(id, categoria);
 
