@@ -5,6 +5,8 @@ import com.serain.pedidos.adapter.datastore.entity.CategoriaEntity;
 import org.mapstruct.*;
 import org.mapstruct.factory.Mappers;
 
+import java.util.List;
+
 @Mapper
 public interface CategoriaMapper {
 
@@ -14,9 +16,10 @@ public interface CategoriaMapper {
 
     Categoria categoriaEntityToCategoria(CategoriaEntity categoriaEntity);
 
+    List<Categoria>  categoriaEntityListToCategoriaList(List<CategoriaEntity> categoriaEntityList);
+
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE,
             nullValueCheckStrategy = NullValueCheckStrategy.ALWAYS)
     void updateCategoriaFromEntity(Categoria dto, @MappingTarget CategoriaEntity entity);
-
 
 }

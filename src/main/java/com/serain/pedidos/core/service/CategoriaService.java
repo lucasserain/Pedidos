@@ -6,7 +6,12 @@ import com.serain.pedidos.adapter.datastore.mapper.CategoriaMapper;
 import com.serain.pedidos.adapter.datastore.repository.CategoriaRepository;
 import com.serain.pedidos.core.service.exception.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 
 @Service
@@ -37,5 +42,15 @@ public class CategoriaService {
 
     public void delete(Integer id) {
         categoriaRepository.delete(CategoriaMapper.INSTANCE.categoriaToCategoriaEntity(find(id)));
+    }
+
+    public List<Categoria> findAll() {
+        return CategoriaMapper.INSTANCE.categoriaEntityListToCategoriaList(categoriaRepository.findAll());
+    }
+
+    public Page<Categoria> findPage(Integer page, Integer linesPerPage, String orderBy, String direction){
+        PageRequest pageRequest = PageRequest.of(page, linesPerPage, Sort.Direction.valueOf(direction), orderBy);
+        Page<Categoria> jooj = categoriaRepository.findAll(pageRequest).map(CategoriaMapper.INSTANCE::categoriaEntityToCategoria);
+        return jooj;
     }
 }
