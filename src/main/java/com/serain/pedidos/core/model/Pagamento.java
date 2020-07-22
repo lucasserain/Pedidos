@@ -12,7 +12,7 @@ import java.io.Serializable;
 @Getter
 @Setter
 @EqualsAndHashCode
-public abstract class Pagamento implements Serializable {
+public class Pagamento implements Serializable {
     private static final long serialVersion = 1L;
 
     private Integer id;
@@ -25,13 +25,13 @@ public abstract class Pagamento implements Serializable {
         this.pedido= pedido;
     }
 
-    public EstadoPagamento getEstado() {
+/*    public EstadoPagamento getEstado() {
         return EstadoPagamento.toEnum(estado);
     }
 
     public void setEstado(EstadoPagamento estado) {
         this.estado = estado.getCod();
-    }
+    }*/
 
 
 }

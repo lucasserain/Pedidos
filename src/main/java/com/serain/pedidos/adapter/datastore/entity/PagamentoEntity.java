@@ -12,7 +12,7 @@ import java.io.Serializable;
 @EqualsAndHashCode
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-public abstract class PagamentoEntity implements Serializable {
+public class PagamentoEntity implements Serializable {
     private static final long serialVersion = 1L;
 
     @Id

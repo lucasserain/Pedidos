@@ -20,7 +20,7 @@ public class Categoria implements Serializable {
     @NotEmpty(message="Preenchimento obrigatório")
     @Length(min=5, max=80, message = "O tamanho deve ser entre 5 e 80 caracteres ")
     private String nome;
-    private List<Produto> produtos = new ArrayList<>();
+    private List<Produto> produtos;
 
     public Categoria(Integer id, String nome) {
         this.id = id;
